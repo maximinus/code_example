@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #charts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            margin-top: 20px;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        select {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; font-weight: bold;">Sensor Data Dashboard</h1>
+    <div>
+        {% if sensors|length <= 0 %}
+            <p>No sensors in database. Refresh page to update</p>
+        {% else %}
+            <label for="sensor-select">Choose a sensor:</label>
+            <select id="sensor-select">
+                {% for sensor in sensors %}
+                    <option value="sensor1">{{ sensor }}</option>
+                {% endfor %}
+            </select>
+        {% endif %}
+    </div>
+    <div id="charts">
+        <canvas id="simple_chart"></canvas>
+    </div>
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart_code.js"></script>
+</body>
+</html>

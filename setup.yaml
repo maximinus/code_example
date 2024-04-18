@@ -1,0 +1,5 @@
+sensors:
+  - name: 'Test Sensor 1'
+    frequency: 250
+  - name: 'Test Sensor 2'
+    frequency: 300
